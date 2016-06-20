@@ -1,0 +1,263 @@
+# baseURI: http://ikm-group.ch/archimeo/bpaas
+# imports: http://spinrdf.org/spl
+# prefix: bpaas
+
+@prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
+@prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bpmn:SubProcess
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object bpmn:SubProcess ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "process"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpmn:SubProcess ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "sprocess"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "process"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedSubBusinessProcess ;
+            sp:subject [
+                sp:varName "sprocess"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+.
+<http://ikm-group.ch/archimeo/bpaas>
+  rdf:type owl:Ontology ;
+  owl:imports <http://spinrdf.org/spl> ;
+.
+bpaas:BusinessProcessRequirement
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "availability"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasAvailabilityInPercent ;
+            sp:subject [
+                sp:varName "req"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessRequirement ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "req"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "val"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasDowntimePerMonthInMin ;
+            sp:subject [
+                sp:varName "req"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:sub ;
+                sp:arg1 100 ;
+                sp:arg2 [
+                    rdf:type sp:divide ;
+                    sp:arg1 [
+                        sp:varName "val"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:mul ;
+                        sp:arg1 [
+                            rdf:type sp:mul ;
+                            sp:arg1 24 ;
+                            sp:arg2 30 ;
+                          ] ;
+                        sp:arg2 100 ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "availability"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "req"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedBusinessProcessRequirement ;
+            sp:subject [
+                sp:varName "bp"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessAnnotationGroup ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "bpag"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "req"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedBusinessProcessRequirement ;
+            sp:subject [
+                sp:varName "bpag"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bp"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedBusinessProcess ;
+            sp:subject [
+                sp:varName "bpag"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "totalsize"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:businessProcessRequirementHasDataStorage ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessRequirement ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "video"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:businessProcessRequirementHasMediaType ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "mediasize"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:mediaTypeHasSize ;
+            sp:subject [
+                sp:varName "video"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "num"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:businessProcessRequirementHasNumberOfProcessExecution ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:mul ;
+                sp:arg1 [
+                    sp:varName "num"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "mediasize"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "totalsize"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+.
+bpaas:WorkflowDescription
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "des"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflowDescription ;
+            sp:subject [
+                sp:varName "wf"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:WorkflowAnnotationGroup ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "wfag"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "des"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflowDescription ;
+            sp:subject [
+                sp:varName "wfag"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "wf"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflow ;
+            sp:subject [
+                sp:varName "wfag"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "WorkflowDescription" ;
+  rdfs:subClassOf archi:ApplicationService ;
+.
