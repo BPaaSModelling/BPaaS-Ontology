@@ -22,10 +22,10 @@
 @prefix top: <http://ikm-group.ch/archiMEO/top#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-eo:mp3
+eo:Video_mp4
   media-types:mediaTypeHasSize "5"^^xsd:decimal ;
 .
-eo:mp4
+eo:mp3
   media-types:mediaTypeHasSize "5"^^xsd:decimal ;
 .
 apqc:AmericanProductivityAndQualityCenter
@@ -44,6 +44,10 @@ bpaas:ApplicationActivity
   rdfs:label "ApplicationActivity"^^xsd:string ;
   rdfs:subClassOf archi:ApplicationService ;
 .
+bpaas:ArchivedData
+  rdf:type owl:Class ;
+  rdfs:subClassOf archi:DataObject ;
+.
 bpaas:Auditing
   rdf:type owl:Class ;
   rdfs:comment """Auditing is the systematic, independent and documented process for obtaining audit evidence about a cloud service and evaluating it objectively to determine the extent to which the audit criteria are
@@ -51,14 +55,14 @@ fulfilled. The audit evidence required and the audit criteria are usually determ
 scheme or certification scheme which is used to perform the audit. Certification is one of many ways
 to address audits."""^^xsd:string ;
   rdfs:label "Auditing"^^xsd:string ;
-  rdfs:subClassOf bpaas:ServiceLevelObjective ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:Authentication
   rdf:type owl:Class ;
   rdfs:comment """Authentication is the verification of the claimed identity of an entity (typically for cloud computing
 the entity is a cloud service user)."""^^xsd:string ;
   rdfs:label "Authentication"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:Availability
   rdf:type owl:Class ;
@@ -94,7 +98,7 @@ bpaas:BPRhasResponseTimeLevel
 bpaas:BackupManagement
   rdf:type owl:Class ;
   rdfs:label "BackupManagement"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:DataManagement ;
 .
 bpaas:BusinessProcessAnnotationGroup
   rdf:type owl:Class ;
@@ -106,9 +110,6 @@ bpaas:BusinessProcessRequirement
   rdfs:label "BusinessProcessRequirement"^^xsd:string ;
   rdfs:subClassOf <http://ikm-group.ch/archiMEO/BMM#MotivationElement> ;
 .
-bpaas:BusinessProcessRequirement_1
-  rdf:type bpaas:BusinessProcessRequirement ;
-.
 bpaas:Businesses
   rdf:type bpaas:TargetMarket ;
 .
@@ -118,30 +119,30 @@ bpaas:Capacity
 for cloud service customers to know when using a cloud service.
 The relevant properties vary depending on the capabilities offered by the cloud service and it is often
 the case that multiple different capacities are relevant for a given cloud service."""^^xsd:string ;
-  rdfs:label "Caapcity"^^xsd:string ;
+  rdfs:label "Capacity"^^xsd:string ;
   rdfs:subClassOf bpaas:Performance ;
 .
 bpaas:CloudBroker
   rdf:type owl:Class ;
-  rdfs:subClassOf eo:Consultant ;
+  rdfs:subClassOf archi:BusinessRole ;
 .
 bpaas:CloudConsumer
   rdf:type owl:Class ;
-  rdfs:subClassOf eo:Consumer ;
+  rdfs:subClassOf archi:BusinessRole ;
 .
 bpaas:CloudProvider
   rdf:type owl:Class ;
-  rdfs:subClassOf eo:Supplier ;
+  rdfs:subClassOf archi:BusinessRole ;
 .
 bpaas:CloudService
   rdf:type owl:Class ;
   rdfs:label "CloudService"^^xsd:string ;
-  rdfs:subClassOf archi:Service ;
+  rdfs:subClassOf archi:ApplicationService ;
 .
 bpaas:ConsultingService
   rdf:type owl:Class ;
   rdfs:label "ConsultingService"^^xsd:string ;
-  rdfs:subClassOf archi:Service ;
+  rdfs:subClassOf archi:BusinessService ;
 .
 bpaas:ContractHasPaymentMethod
   rdf:type rdf:Property ;
@@ -152,49 +153,21 @@ bpaas:CustomizablePlan
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "CustomizablePlan"^^xsd:string ;
 .
-bpaas:DataConfidentiality
+bpaas:DataManagement
   rdf:type owl:Class ;
-  rdfs:label "DataConfidentiality"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
-.
-bpaas:DataIncidentManagement
-  rdf:type owl:Class ;
-  rdfs:label "DataIncidentManagement"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
-.
-bpaas:DataIntegrity
-  rdf:type owl:Class ;
-  rdfs:comment "The property of protecting the accuracy and completeness of assets."^^xsd:string ;
-  rdfs:label "DataIntegrity"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
-.
-bpaas:DataSecurity
-  rdf:type owl:Class ;
-  rdfs:label "Data Security"^^xsd:string ;
   rdfs:subClassOf bpaas:ServiceLevelObjective ;
-.
-bpaas:DataServiceReliability
-  rdf:type owl:Class ;
-  rdfs:comment """It describes the ability of the cloud service to perform its function correctly
-and without failure over some specified period."""^^xsd:string ;
-  rdfs:label "DataServiceReliability"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
 .
 bpaas:DataTransparency
   rdf:type owl:Class ;
-  rdfs:comment """Transparency in the cloud means it is necessary for the cloud service customer to be made
-aware of cloud service providers’ subcontractors contributing to the provision of the respective cloud
-service."""^^xsd:string ;
+  rdfs:comment "Transparency in the cloud means it is necessary for the cloud service customer to be made aware of cloud service providers’ subcontractors contributing to the provision of the respective cloud service."^^xsd:string ;
   rdfs:label "DataTransparency"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:PersonalDataProtection ;
 .
-bpaas:EncryptionType
+bpaas:Encryption
   rdf:type owl:Class ;
-  rdfs:comment """Encryption is a discipline which embodies principles, means and methods for the transformation
-of data in order to hide its information content, prevent its undetected modification and/or prevent
-its unauthorized use. Also known by the term cryptography."""^^xsd:string ;
+  rdfs:comment "Encryption is a discipline which embodies principles, means and methods for the transformation of data in order to hide its information content, prevent its undetected modification and/or prevent its unauthorized use. Also known by the term cryptography."^^xsd:string ;
   rdfs:label "EncryptionType"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:FreeOfCharge
   rdf:type bpaas:PaymentPlan ;
@@ -232,7 +205,7 @@ bpaas:Logging
 means determining the status of one or more parameters of a cloud service. Logging and monitoring
 are ordinarily the responsibility of the cloud service provider."""^^xsd:string ;
   rdfs:label "Logging"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:LoggingHasLogsRetentionPeriodInDays
   rdf:type owl:DatatypeProperty ;
@@ -259,7 +232,7 @@ bpaas:NoTarget
   rdf:type bpaas:TargetMarket ;
 .
 bpaas:None
-  rdf:type bpaas:EncryptionType ;
+  rdf:type bpaas:Encryption ;
   bpaas:BPRHasTypeOfEncryptionLevel bpaas:Low ;
 .
 bpaas:One-timePasswordDevice
@@ -278,6 +251,10 @@ bpaas:PaymentPlanHasTarget
   rdfs:range bpaas:TargetMarket ;
 .
 bpaas:Performance
+  rdf:type owl:Class ;
+  rdfs:subClassOf bpaas:ServiceLevelObjective ;
+.
+bpaas:PersonalDataProtection
   rdf:type owl:Class ;
   rdfs:subClassOf bpaas:ServiceLevelObjective ;
 .
@@ -306,7 +283,11 @@ bpaas:PricingForSupport
 bpaas:PricingModel
   rdf:type owl:Class ;
   rdfs:label "Pricing Model"^^xsd:string ;
-  rdfs:subClassOf <http://ikm-group.ch/archiMEO/nco#NCO> ;
+  rdfs:subClassOf archi:BusinessObject ;
+.
+bpaas:ProcessedData
+  rdf:type owl:Class ;
+  rdfs:subClassOf archi:DataObject ;
 .
 bpaas:Raid0
   rdf:type bpaas:TypeOfRaid ;
@@ -360,13 +341,22 @@ bpaas:RequirementLevel
 .
 bpaas:ResponseTime
   rdf:type owl:Class ;
-  rdfs:comment """Time interval between a cloud service customer initiated event (stimulus)
-and a cloud service provider initiated event in response to that stimulus."""^^xsd:string ;
+  rdfs:comment "Time interval between a cloud service customer initiated event (stimulus) and a cloud service provider initiated event in response to that stimulus."^^xsd:string ;
   rdfs:label "Response Time"^^xsd:string ;
   rdfs:subClassOf bpaas:Performance ;
 .
 bpaas:SchoolsAndUniversities
   rdf:type bpaas:TargetMarket ;
+.
+bpaas:SecurityIncidentManagement
+  rdf:type owl:Class ;
+  rdfs:label "SecurityIncidentManagement"^^xsd:string ;
+  rdfs:subClassOf bpaas:SecurityService ;
+.
+bpaas:SecurityService
+  rdf:type owl:Class ;
+  rdfs:label "Security Service"^^xsd:string ;
+  rdfs:subClassOf bpaas:ServiceLevelObjective ;
 .
 bpaas:ServiceLevelAgreement
   rdf:type owl:Class ;
@@ -382,15 +372,21 @@ Measurements should also be comparable since reduced comparability impedes adopt
 from case to case reviewing less-quantitative or qualitative SLOs and comparing different services
 may provide extra insights for making such informed decision."""^^xsd:string ;
   rdfs:label "Service Level Objective"^^xsd:string ;
-  rdfs:subClassOf eo:Objective ;
+  rdfs:subClassOf bpaas:ServiceLevelAgreement ;
+.
+bpaas:ServiceReliability
+  rdf:type owl:Class ;
+  rdfs:comment "It describes the ability of the cloud service to perform its function correctly and without failure over some specified period."^^xsd:string ;
+  rdfs:label "ServiceReliability"^^xsd:string ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:Sha1
-  rdf:type bpaas:EncryptionType ;
+  rdf:type bpaas:Encryption ;
   bpaas:BPRHasTypeOfEncryptionLevel bpaas:Medium ;
   rdfs:label "SHA-1"^^xsd:string ;
 .
 bpaas:Sha256
-  rdf:type bpaas:EncryptionType ;
+  rdf:type bpaas:Encryption ;
   bpaas:BPRHasTypeOfEncryptionLevel bpaas:High ;
   rdfs:label "SHA-256"^^xsd:string ;
 .
@@ -403,17 +399,18 @@ bpaas:SocialMediaExecutionGroup
 bpaas:SoftCryptoToken
   rdf:type bpaas:Authentication ;
 .
-bpaas:SteudentsAndTeachers
-  rdf:type bpaas:TargetMarket ;
-.
 bpaas:StoragePeriodInMonths
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:integer ;
 .
+bpaas:StoredData
+  rdf:type owl:Class ;
+  rdfs:subClassOf archi:DataObject ;
+.
 bpaas:SupportService
   rdf:type owl:Class ;
   rdfs:label "SupportService"^^xsd:string ;
-  rdfs:subClassOf archi:Service ;
+  rdfs:subClassOf archi:BusinessService ;
 .
 bpaas:TargetMarket
   rdf:type owl:Class ;
@@ -427,7 +424,7 @@ bpaas:TryFreeFirst
 bpaas:TypeOfRaid
   rdf:type owl:Class ;
   rdfs:label "Type of raid"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:UserInterfaceGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
@@ -437,12 +434,12 @@ bpaas:VulnerabilityManagement
   rdfs:comment """A vulnerability is a weakness in an information system, system security procedures, internal controls,
 or implementation that could be exploited or triggered by a threat."""^^xsd:string ;
   rdfs:label "VulnerabilityManagement"^^xsd:string ;
-  rdfs:subClassOf bpaas:DataSecurity ;
+  rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:WFDhasDataProcessingLocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
-  rdfs:range bpaas:DataProcessing ;
+  rdfs:range top:Location ;
 .
 bpaas:WFDhasDataStorageLocation
   rdf:type owl:ObjectProperty ;
@@ -452,7 +449,7 @@ bpaas:WFDhasDataStorageLocation
 bpaas:WFDhasTypeOfEncryption
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
-  rdfs:range bpaas:EncryptionType ;
+  rdfs:range bpaas:Encryption ;
 .
 bpaas:WFDhasTypeOfRaid
   rdf:type owl:ObjectProperty ;
@@ -610,6 +607,16 @@ bpaas:capacityHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
 .
+bpaas:capacityHasNumberOfProcessExecution
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:Capacity ;
+  rdfs:range xsd:integer ;
+.
+bpaas:capacityIncludesMediaType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:Capacity ;
+  rdfs:range media-types:MIMETYPE ;
+.
 bpaas:capacityIncludesSimultaneousConnections
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:Capacity ;
@@ -625,27 +632,19 @@ bpaas:cloudConsumerIsPartOfTargetMarket
   rdfs:domain bpaas:CloudConsumer ;
   rdfs:range bpaas:TargetMarket ;
 .
+bpaas:cloudServiceHandlesData
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:CloudService ;
+  rdfs:range archi:DataObject ;
+.
 bpaas:contractIncludesPricingModel
   rdf:type owl:ObjectProperty ;
   rdfs:domain archi:Contract ;
   rdfs:range bpaas:PricingModel ;
 .
-bpaas:dataEncryptionHasLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:range bpaas:RequirementLevel ;
-.
-bpaas:dataLocationHasLocation
-  rdf:type owl:ObjectProperty ;
-  rdfs:range top:PhysicalLocation ;
-.
 bpaas:dataProcessingHasLocation
   rdf:type owl:ObjectProperty ;
   rdfs:range top:Location ;
-.
-bpaas:dataSecurityHasLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:DataSecurity ;
-  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:dataStorageHaseLocation
   rdf:type owl:ObjectProperty ;
@@ -663,20 +662,20 @@ regulations."""^^xsd:string ;
 bpaas:encryptionTypeHasBruteForceResistance
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "expresses the strength of a cryptographic protection applied to a resource based on its key length, for example using the ECRYPT II security level recommendations or the FIPS security levels20 for encryption. Instead of using key lengths alone, which are not always directly comparable from one algorithm to another, this normalizing scale allows comparison of the strengths of different types of cryptographic algorithms."^^xsd:string ;
-  rdfs:domain bpaas:EncryptionType ;
+  rdfs:domain bpaas:Encryption ;
   rdfs:range xsd:string ;
 .
 bpaas:encryptionTypeHasHardwareModuleProtectionLevel
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "describes the level of protection that is afforded to cryptographic operations in the cloud service through the use of cryptographic hardware modules."^^xsd:string ;
-  rdfs:domain bpaas:EncryptionType ;
+  rdfs:domain bpaas:Encryption ;
   rdfs:range xsd:string ;
 .
 bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
   rdfs:comment """describes how strongly a cryptographic key is protected from access, when it is used to provide security to the cloud service (or assets within the cloud
 service)."""^^xsd:string ;
-  rdfs:domain bpaas:EncryptionType ;
+  rdfs:domain bpaas:Encryption ;
   rdfs:range xsd:string ;
 .
 bpaas:hasAPQC
@@ -690,7 +689,8 @@ bpaas:hasAuthentication
   rdfs:range bpaas:Authentication ;
 .
 bpaas:hasAvailabilityInPercent
-  rdf:type rdf:Property ;
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
   rdfs:label "hasAvailabilityInPercent"^^xsd:string ;
   rdfs:range xsd:decimal ;
 .
@@ -709,6 +709,11 @@ bpaas:hasBackupRestoreTime
   rdfs:domain owl:Thing ;
   rdfs:range xsd:string ;
 .
+bpaas:hasCryptographyLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:RequirementLevel ;
+.
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
@@ -718,11 +723,6 @@ bpaas:hasDowntimePerMonthInMin
   rdf:type rdf:Property ;
   rdfs:label "hasDowntimePerMonthInMin"^^xsd:string ;
   rdfs:range xsd:integer ;
-.
-bpaas:hasEncryptionLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:hasIncidentManagementLevel
   rdf:type owl:ObjectProperty ;
@@ -780,13 +780,16 @@ bpaas:helpDeskResponseHasLevel
 .
 bpaas:incidentManagementHasPercentageOfTimelyIncidentReports
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:DataIncidentManagement ;
+  rdfs:domain bpaas:SecurityIncidentManagement ;
   rdfs:range xsd:decimal ;
 .
 bpaas:incidentManagementHasPercentageOfTimelyIncidentResolutions
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:DataIncidentManagement ;
+  rdfs:domain bpaas:SecurityIncidentManagement ;
   rdfs:range xsd:decimal ;
+.
+bpaas:levelOfRedundancy
+  rdf:type owl:ObjectProperty ;
 .
 bpaas:loggingHasLogAccessAvailability
   rdf:type owl:DatatypeProperty ;
@@ -848,6 +851,11 @@ bpaas:responseTimehasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
 .
+bpaas:securityServiceHasLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:SecurityService ;
+  rdfs:range bpaas:RequirementLevel ;
+.
 bpaas:serviceIsSpecifiedByAContract
   rdf:type owl:ObjectProperty ;
   rdfs:domain archi:Service ;
@@ -857,6 +865,18 @@ bpaas:serviceLevelAgreementHasServiceLevelObjective
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:ServiceLevelAgreement ;
   rdfs:range bpaas:ServiceLevelObjective ;
+.
+bpaas:serviceReliabilityHasPercentageOfCorrectness
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "It describes the ability of the cloud service to perform its function correctly and without failure over some specified period."^^xsd:string ;
+  rdfs:domain bpaas:ServiceReliability ;
+  rdfs:range xsd:decimal ;
+.
+bpaas:serviceReliabilityHasPercentageOfRedundancy
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "It describes the level of redundancy of the cloud service supply chain, possibly taking into account the percentage of the components or service that have fail over mechanism. Redundancy varies also on the type of cloud service provided (IaaS versus SaaS for example))."^^xsd:string ;
+  rdfs:domain bpaas:ServiceReliability ;
+  rdfs:range xsd:decimal ;
 .
 bpaas:serviceSupport24-7
   rdf:type owl:DatatypeProperty ;
