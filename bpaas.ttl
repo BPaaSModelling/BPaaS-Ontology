@@ -74,7 +74,7 @@ bpaas:BPRhasDowntimePerMonthInMinutes
 bpaas:BPRhasMediaType
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BusinessProcessRequirement ;
-  rdfs:range media-types:MIMETYPE ;
+  rdfs:range bpaas:MediaType ;
 .
 bpaas:BPRhasNumberOfProcessExecution
   rdf:type owl:DatatypeProperty ;
