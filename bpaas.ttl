@@ -22,12 +22,6 @@
 @prefix top: <http://ikm-group.ch/archiMEO/top#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-eo:Video_mp4
-  media-types:mediaTypeHasSize "5"^^xsd:decimal ;
-.
-eo:mp3
-  media-types:mediaTypeHasSize "5"^^xsd:decimal ;
-.
 apqc:AmericanProductivityAndQualityCenter
   rdfs:subClassOf <http://ikm-group.ch/archiMEO/nco#Category> ;
 .
@@ -37,7 +31,7 @@ apqc:AmericanProductivityAndQualityCenter
   owl:imports <http://ikm-group.ch/archimeo/apqc> ;
   owl:imports <http://ikm-group.ch/archimeo/fbpdo> ;
   owl:imports <http://spinrdf.org/spl> ;
-  owl:versionInfo "0.8"^^xsd:string ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 bpaas:ApplicationActivity
   rdf:type owl:Class ;
@@ -159,7 +153,7 @@ bpaas:DataManagement
 .
 bpaas:DataTransparency
   rdf:type owl:Class ;
-  rdfs:comment "Transparency in the cloud means it is necessary for the cloud service customer to be made aware of cloud service providersâ€™ subcontractors contributing to the provision of the respective cloud service."^^xsd:string ;
+  rdfs:comment "Transparency in the cloud means it is necessary for the cloud service customer to be made aware of cloud service providers’ subcontractors contributing to the provision of the respective cloud service."^^xsd:string ;
   rdfs:label "DataTransparency"^^xsd:string ;
   rdfs:subClassOf bpaas:PersonalDataProtection ;
 .
@@ -189,10 +183,7 @@ bpaas:IdentityAssuranceFramework
 bpaas:Individuals
   rdf:type bpaas:TargetMarket ;
 .
-bpaas:JiraUIGroup1
-  rdf:type bpaas:WorkflowAnnotationGroup ;
-.
-bpaas:JiraUIGroup2
+bpaas:JiraUIGroup
   rdf:type bpaas:WorkflowAnnotationGroup ;
 .
 bpaas:LevelOfAssurance
@@ -216,6 +207,11 @@ bpaas:LoggingHasLogsRetentionPeriodInDays
 bpaas:Low
   rdf:type bpaas:RequirementLevel ;
   rdfs:label "low"^^xsd:string ;
+.
+bpaas:MediaType
+  rdf:type owl:Class ;
+  rdfs:label "MediaType"^^xsd:string ;
+  rdfs:subClassOf <http://ikm-group.ch/archiMEO/nco#SpecificationStandard> ;
 .
 bpaas:Medium
   rdf:type bpaas:RequirementLevel ;
@@ -365,7 +361,7 @@ bpaas:ServiceLevelAgreement
 .
 bpaas:ServiceLevelObjective
   rdf:type owl:Class ;
-  rdfs:comment """Service Level objectives (â€˜SLOâ€™) are often quantitative and have related measurements. For cloud
+  rdfs:comment """Service Level objectives (‘SLO’) are often quantitative and have related measurements. For cloud
 service customers to make informed decisions when choosing cloud services, it is best if the service
 level objectives offered by each cloud service provider for similar services can be easily compared.
 Measurements should also be comparable since reduced comparability impedes adoption. However,
@@ -428,6 +424,10 @@ bpaas:TypeOfRaid
 .
 bpaas:UserInterfaceGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
+.
+bpaas:Video_mp4
+  rdf:type bpaas:MediaType ;
+  rdfs:label "MediaType"^^xsd:string ;
 .
 bpaas:VulnerabilityManagement
   rdf:type owl:Class ;
@@ -598,7 +598,7 @@ bpaas:businessProcessRequirementContentMessage
   rdf:type owl:ObjectProperty ;
   rdfs:range fbpdo:ContentMessage ;
 .
-bpaas:capacityHasAvailable
+bpaas:capacityHasAvailableDataStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:Capacity ;
   rdfs:range xsd:decimal ;
@@ -717,6 +717,7 @@ bpaas:hasCryptographyLevel
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
+  rdfs:label "hasDataStorage"^^xsd:string ;
   rdfs:range xsd:decimal ;
 .
 bpaas:hasDowntimePerMonthInMin
@@ -808,6 +809,16 @@ bpaas:maxResponseTime
   rdfs:domain bpaas:ResponseTime ;
   rdfs:range xsd:integer ;
 .
+bpaas:mediaTypeHasSize
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:MediaType ;
+  rdfs:label "MediaType"^^xsd:string ;
+  rdfs:range xsd:decimal ;
+.
+bpaas:mp3
+  rdf:type bpaas:MediaType ;
+  rdfs:label "MediaType"^^xsd:string ;
+.
 bpaas:obtainsService
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:CloudConsumer ;
@@ -829,10 +840,18 @@ bpaas:paymentPlanHasPaymentType
   rdfs:domain bpaas:PaymentPlan ;
   rdfs:range xsd:string ;
 .
+bpaas:pdf
+  rdf:type bpaas:MediaType ;
+  rdfs:label "MediaType"^^xsd:string ;
+.
 bpaas:performanceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:Performance ;
   rdfs:range bpaas:RequirementLevel ;
+.
+bpaas:ppt
+  rdf:type bpaas:MediaType ;
+  rdfs:label "MediaType"^^xsd:string ;
 .
 bpaas:refersToALocation
   rdf:type owl:ObjectProperty ;
@@ -961,9 +980,4 @@ bpaas:workflowHasWorkflowDescription
 .
 fbpdo:FunctionalBusinessProcessDescription
   rdfs:subClassOf archi:BusinessProcess ;
-.
-media-types:mediaTypeHasSize
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain media-types:MIMETYPE ;
-  rdfs:range xsd:decimal ;
 .
