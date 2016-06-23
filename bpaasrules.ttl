@@ -149,14 +149,14 @@ bpaas:BusinessProcessRequirement
           ]
         ) ;
     ] ;
-  spin:rule [
+ spin:rule [
       rdf:type sp:Construct ;
       sp:templates (
           [
             sp:object [
                 sp:varName "totalsize"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:BPRHasDataStorage ;
+            sp:predicate bpaas:hasDataStorage ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
@@ -174,7 +174,7 @@ bpaas:BusinessProcessRequirement
             sp:object [
                 sp:varName "video"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:BPRHasMediaType ;
+            sp:predicate bpaas:BPRhasMediaType ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
@@ -192,7 +192,7 @@ bpaas:BusinessProcessRequirement
             sp:object [
                 sp:varName "num"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:BPRHasNumberOfProcessExecution ;
+            sp:predicate bpaas:BPRhasNumberOfProcessExecution ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
