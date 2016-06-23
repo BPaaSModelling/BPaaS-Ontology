@@ -598,7 +598,7 @@ bpaas:businessProcessRequirementContentMessage
   rdf:type owl:ObjectProperty ;
   rdfs:range fbpdo:ContentMessage ;
 .
-bpaas:capacityHasAvailableDataStorage
+bpaas:capacityHasAvailable
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:Capacity ;
   rdfs:range xsd:decimal ;
@@ -717,7 +717,7 @@ bpaas:hasCryptographyLevel
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:range xsd:integer ;
+  rdfs:range xsd:decimal ;
 .
 bpaas:hasDowntimePerMonthInMin
   rdf:type rdf:Property ;
