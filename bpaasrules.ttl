@@ -232,6 +232,47 @@ bpaas:WorkflowDescription
         ) ;
       sp:where (
           [
+            sp:object bpmn:Lane ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "lane"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "des"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflowDescription ;
+            sp:subject [
+                sp:varName "lane"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "wf"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflow ;
+            sp:subject [
+                sp:varName "lane"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "des"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasReferencedWorkflowDescription ;
+            sp:subject [
+                sp:varName "wf"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
             sp:object bpaas:WorkflowAnnotationGroup ;
             sp:predicate rdf:type ;
             sp:subject [
