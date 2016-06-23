@@ -156,7 +156,7 @@ bpaas:BusinessProcessRequirement
             sp:object [
                 sp:varName "totalsize"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:businessProcessRequirementHasDataStorage ;
+            sp:predicate bpaas:BPRHasDataStorage ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
@@ -174,7 +174,7 @@ bpaas:BusinessProcessRequirement
             sp:object [
                 sp:varName "video"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:businessProcessRequirementHasMediaType ;
+            sp:predicate bpaas:BPRHasMediaType ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
@@ -192,7 +192,7 @@ bpaas:BusinessProcessRequirement
             sp:object [
                 sp:varName "num"^^xsd:string ;
               ] ;
-            sp:predicate bpaas:businessProcessRequirementHasNumberOfProcessExecution ;
+            sp:predicate bpaas:BPRHasNumberOfProcessExecution ;
             sp:subject [
                 sp:varName "bpr"^^xsd:string ;
               ] ;
