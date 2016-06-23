@@ -44,17 +44,13 @@ bpaas:ArchivedData
 .
 bpaas:Auditing
   rdf:type owl:Class ;
-  rdfs:comment """Auditing is the systematic, independent and documented process for obtaining audit evidence about a cloud service and evaluating it objectively to determine the extent to which the audit criteria are
-fulfilled. The audit evidence required and the audit criteria are usually determined by the audit
-scheme or certification scheme which is used to perform the audit. Certification is one of many ways
-to address audits."""^^xsd:string ;
+  rdfs:comment """Auditing is the systematic, independent and documented process for obtaining audit evidence about a cloud service and evaluating it objectively to determine the extent to which the audit criteria are fulfilled. The audit evidence required and the audit criteria are usually determined by the audit scheme or certification scheme which is used to perform the audit. Certification is one of many ways to address audits."""^^xsd:string ;
   rdfs:label "Auditing"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
 bpaas:Authentication
   rdf:type owl:Class ;
-  rdfs:comment """Authentication is the verification of the claimed identity of an entity (typically for cloud computing
-the entity is a cloud service user)."""^^xsd:string ;
+  rdfs:comment """Authentication is the verification of the claimed identity of an entity (typically for cloud computing the entity is a cloud service user)."""^^xsd:string ;
   rdfs:label "Authentication"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
@@ -109,10 +105,7 @@ bpaas:Businesses
 .
 bpaas:Capacity
   rdf:type owl:Class ;
-  rdfs:comment """Capacity is the maximum amount of some property of a cloud service. It is often an important value
-for cloud service customers to know when using a cloud service.
-The relevant properties vary depending on the capabilities offered by the cloud service and it is often
-the case that multiple different capacities are relevant for a given cloud service."""^^xsd:string ;
+  rdfs:comment """Capacity is the maximum amount of some property of a cloud service. It is often an important value for cloud service customers to know when using a cloud service. The relevant properties vary depending on the capabilities offered by the cloud service and it is often the case that multiple different capacities are relevant for a given cloud service."""^^xsd:string ;
   rdfs:label "Capacity"^^xsd:string ;
   rdfs:subClassOf bpaas:Performance ;
 .
@@ -192,9 +185,7 @@ bpaas:LevelOfAssurance
 .
 bpaas:Logging
   rdf:type owl:Class ;
-  rdfs:comment """Logging is the recording of data related to the operation and use of a cloud service. Monitoring
-means determining the status of one or more parameters of a cloud service. Logging and monitoring
-are ordinarily the responsibility of the cloud service provider."""^^xsd:string ;
+  rdfs:comment """Logging is the recording of data related to the operation and use of a cloud service. Monitoring means determining the status of one or more parameters of a cloud service. Logging and monitoring are ordinarily the responsibility of the cloud service provider."""^^xsd:string ;
   rdfs:label "Logging"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
@@ -361,12 +352,7 @@ bpaas:ServiceLevelAgreement
 .
 bpaas:ServiceLevelObjective
   rdf:type owl:Class ;
-  rdfs:comment """Service Level objectives (‘SLO’) are often quantitative and have related measurements. For cloud
-service customers to make informed decisions when choosing cloud services, it is best if the service
-level objectives offered by each cloud service provider for similar services can be easily compared.
-Measurements should also be comparable since reduced comparability impedes adoption. However,
-from case to case reviewing less-quantitative or qualitative SLOs and comparing different services
-may provide extra insights for making such informed decision."""^^xsd:string ;
+  rdfs:comment """Service Level objectives (‘SLO’) are often quantitative and have related measurements. For cloud service customers to make informed decisions when choosing cloud services, it is best if the service level objectives offered by each cloud service provider for similar services can be easily compared. Measurements should also be comparable since reduced comparability impedes adoption. However, from case to case reviewing less-quantitative or qualitative SLOs and comparing different services may provide extra insights for making such informed decision."""^^xsd:string ;
   rdfs:label "Service Level Objective"^^xsd:string ;
   rdfs:subClassOf bpaas:ServiceLevelAgreement ;
 .
@@ -431,8 +417,7 @@ bpaas:Video_mp4
 .
 bpaas:VulnerabilityManagement
   rdf:type owl:Class ;
-  rdfs:comment """A vulnerability is a weakness in an information system, system security procedures, internal controls,
-or implementation that could be exploited or triggered by a threat."""^^xsd:string ;
+  rdfs:comment """A vulnerability is a weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat."""^^xsd:string ;
   rdfs:label "VulnerabilityManagement"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
@@ -481,9 +466,7 @@ bpaas:ZapierOneShotGroup
 .
 bpaas:auditingIncludesApplicableCertifications
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """It refers to a list of certifications held by the cloud service provider for a
-cloud service, including the certifying body, the expiration date of each
-certification and the renewal period."""^^xsd:string ;
+  rdfs:comment """It refers to a list of certifications held by the cloud service provider for a cloud service, including the certifying body, the expiration date of each certification and the renewal period."""^^xsd:string ;
   rdfs:domain bpaas:Auditing ;
   rdfs:range xsd:string ;
 .
@@ -516,17 +499,13 @@ bpaas:availabilityHasLevel
 .
 bpaas:availabilityHasSuccesfulRequestsInPercentage
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """It describes the number of requests processed by the service without an
-error over the total number of submitted requests, expressed as a
-percentage."""^^xsd:string ;
+  rdfs:comment """It describes the number of requests processed by the service without an error over the total number of submitted requests, expressed as a percentage."""^^xsd:string ;
   rdfs:domain bpaas:Availability ;
   rdfs:range xsd:integer ;
 .
 bpaas:availabilityHasTimelyServiceProvisioningRequestsInPercentage
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """It describes the number of service provisioning requests completed within a
-defined time period over the total number of service provisioning
-requests, expressed as a percentage."""^^xsd:string ;
+  rdfs:comment """It describes the number of service provisioning requests completed within a defined time period over the total number of service provisioning requests, expressed as a percentage."""^^xsd:string ;
   rdfs:domain bpaas:Availability ;
   rdfs:range xsd:integer ;
 .
@@ -652,10 +631,7 @@ bpaas:dataStorageHaseLocation
 .
 bpaas:dataTransparencyIncludesSpecialCategoriesOfData
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """refers to the list of the specific categories of personal data (if any), e.g.
-health-related or financial data or otherwise sensitive data, that the cloud
-service is suitable for processing, according to applicable standards or
-regulations."""^^xsd:string ;
+  rdfs:comment """refers to the list of the specific categories of personal data (if any), e.g.health-related or financial data or otherwise sensitive data, that the cloud service is suitable for processing, according to applicable standards or regulations."""^^xsd:string ;
   rdfs:domain bpaas:DataTransparency ;
   rdfs:range xsd:string ;
 .
@@ -673,8 +649,7 @@ bpaas:encryptionTypeHasHardwareModuleProtectionLevel
 .
 bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """describes how strongly a cryptographic key is protected from access, when it is used to provide security to the cloud service (or assets within the cloud
-service)."""^^xsd:string ;
+  rdfs:comment """describes how strongly a cryptographic key is protected from access, when it is used to provide security to the cloud service (or assets within the cloud service)."""^^xsd:string ;
   rdfs:domain bpaas:Encryption ;
   rdfs:range xsd:string ;
 .
@@ -952,15 +927,13 @@ bpaas:typeOfRaidHasRequirementLevel
 .
 bpaas:vulnerabilityManagementHasPercentageOfTimelyVulnerabilityCorrections
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """It describes the number of vulnerability corrections performed by the cloud service provider, and is represented as a percentage by the number of
-vulnerability corrections performed within a predefined time limit, over the total number of vulnerability corrections to the cloud service which are reported within a predefined period (i.e. month, week, year, etc)."""^^xsd:string ;
+  rdfs:comment """It describes the number of vulnerability corrections performed by the cloud service provider, and is represented as a percentage by the number of vulnerability corrections performed within a predefined time limit, over the total number of vulnerability corrections to the cloud service which are reported within a predefined period (i.e. month, week, year, etc)."""^^xsd:string ;
   rdfs:domain bpaas:VulnerabilityManagement ;
   rdfs:range xsd:decimal ;
 .
 bpaas:vulnerabilityManagementHasReportsOfVulnerabilityCorrections
   rdf:type owl:DatatypeProperty ;
-  rdfs:comment """It is a description of the mechanism by which the cloud service provider informs the customer of vulnerability corrections applied to the provider's
-systems, including the frequency of the reports."""^^xsd:string ;
+  rdfs:comment """It is a description of the mechanism by which the cloud service provider informs the customer of vulnerability corrections applied to the provider's systems, including the frequency of the reports."""^^xsd:string ;
   rdfs:domain bpaas:VulnerabilityManagement ;
   rdfs:range xsd:decimal ;
 .
