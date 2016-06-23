@@ -37,7 +37,7 @@ apqc:AmericanProductivityAndQualityCenter
   owl:imports <http://ikm-group.ch/archimeo/apqc> ;
   owl:imports <http://ikm-group.ch/archimeo/fbpdo> ;
   owl:imports <http://spinrdf.org/spl> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+  owl:versionInfo "0.8"^^xsd:string ;
 .
 bpaas:ApplicationActivity
   rdf:type owl:Class ;
