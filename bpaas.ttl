@@ -404,9 +404,10 @@ bpaas:TypeOfRaid
 bpaas:UserInterfaceGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
 .
-bpaas:Video_mp4
+ bpaas:Video_mp4
   rdf:type bpaas:MediaType ;
-  rdfs:label "Video mp4"^^xsd:string ;
+  bpaas:mediaTypeHasSize "5"^^xsd:decimal ;
+  rdfs:label "MediaType"^^xsd:string ;
 .
 bpaas:VulnerabilityManagement
   rdf:type owl:Class ;
