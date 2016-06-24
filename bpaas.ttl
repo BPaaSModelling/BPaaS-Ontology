@@ -151,6 +151,9 @@ bpaas:DataTransparency
   rdfs:label "DataTransparency"^^xsd:string ;
   rdfs:subClassOf bpaas:PersonalDataProtection ;
 .
+bpaas:Differential
+  rdf:type bpaas:BackupManagement ;
+.
 bpaas:Encryption
   rdf:type owl:Class ;
   rdfs:label "EncryptionType"^^xsd:string ;
@@ -159,6 +162,9 @@ bpaas:Encryption
 bpaas:FreeOfCharge
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "FreeOfCharge"^^xsd:string ;
+.
+bpaas:Full
+  rdf:type bpaas:BackupManagement ;
 .
 bpaas:GrowingTeams
   rdf:type bpaas:TargetMarket ;
@@ -172,6 +178,9 @@ bpaas:ISO_IEC_29115
 .
 bpaas:IdentityAssuranceFramework
   rdf:type bpaas:LevelOfAssurance ;
+.
+bpaas:Incremental
+  rdf:type bpaas:BackupManagement ;
 .
 bpaas:Individuals
   rdf:type bpaas:TargetMarket ;
@@ -666,8 +675,12 @@ bpaas:hasBackupFrequency
 .
 bpaas:hasBackupRestoreTime
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain owl:Thing ;
   rdfs:range xsd:string ;
+.
+bpaas:hasBackupType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:BackupManagement ;
 .
 bpaas:hasCryptographyLevel
   rdf:type owl:ObjectProperty ;
@@ -719,6 +732,11 @@ bpaas:hasResponseTime
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
   rdfs:range xsd:time ;
+.
+bpaas:hasRestoreTime
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:hasServiceSupport
   rdf:type owl:ObjectProperty ;
