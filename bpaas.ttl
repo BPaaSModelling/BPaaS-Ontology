@@ -816,10 +816,6 @@ bpaas:refersToALocation
   rdfs:domain owl:Thing ;
   rdfs:range top:Location ;
 .
-bpaas:responseTimeHasLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:responseTimePerformanceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
