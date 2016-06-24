@@ -1,20 +1,22 @@
 # baseURI: http://ikm-group.ch/archimeo/bpaas
 # imports: http://ikm-group.ch/archimeo
 # imports: http://ikm-group.ch/archimeo/apqc
+# imports: http://ikm-group.ch/archimeo/bmm
 # imports: http://ikm-group.ch/archimeo/fbpdo
+# imports: http://ikm-group.ch/archimeo/nco
 # imports: http://spinrdf.org/spl
 # prefix: bpaas
 
 @prefix apqc: <http://ikm-group.ch/archimeo/apqc#> .
 @prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
 @prefix arg: <http://spinrdf.org/arg#> .
+@prefix bmm: <http://ikm-group.ch/archiMEO/BMM#> .
 @prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
 @prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
-@prefix bmm: <http://ikm-group.ch/archiMEO/BMM#> .
-@prefix nco: <http://ikm-group.ch/archiMEO/NCO#> .
 @prefix eo: <http://ikm-group.ch/archiMEO/eo#> .
 @prefix fbpdo: <http://ikm-group.ch/archimeo/fbpdo#> .
 @prefix media-types: <http://www.iana.org/assignments/media-types#> .
+@prefix nco: <http://ikm-group.ch/archiMEO/NCO#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -31,9 +33,9 @@ apqc:AmericanProductivityAndQualityCenter
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
   owl:imports <http://ikm-group.ch/archimeo/apqc> ;
+  owl:imports <http://ikm-group.ch/archimeo/bmm> ;
   owl:imports <http://ikm-group.ch/archimeo/fbpdo> ;
   owl:imports <http://ikm-group.ch/archimeo/nco> ;
-  owl:imports <http://ikm-group.ch/archimeo/bmm> ;
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
@@ -99,7 +101,7 @@ bpaas:BusinessProcessAnnotationGroup
 bpaas:BusinessProcessRequirement
   rdf:type owl:Class ;
   rdfs:label "BusinessProcessRequirement"^^xsd:string ;
-  rdfs:subClassOf <http://ikm-group.ch/archiMEO/BMM#MotivationElement> ;
+  rdfs:subClassOf bmm:MotivationElement ;
 .
 bpaas:Businesses
   rdf:type bpaas:TargetMarket ;
@@ -404,7 +406,7 @@ bpaas:TypeOfRaid
 bpaas:UserInterfaceGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
 .
- bpaas:Video_mp4
+bpaas:Video_mp4
   rdf:type bpaas:MediaType ;
   bpaas:mediaTypeHasSize "5"^^xsd:decimal ;
   rdfs:label "MediaType"^^xsd:string ;
@@ -713,6 +715,11 @@ bpaas:hasReferencedWorkflowDescription
   rdfs:domain owl:Thing ;
   rdfs:range bpaas:WorkflowDescription ;
 .
+bpaas:hasResponseTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range xsd:time ;
+.
 bpaas:hasServiceSupport
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
@@ -816,11 +823,6 @@ bpaas:responseTimeHasLevel
 bpaas:responseTimePerformanceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
-.
-  bpaas:WFDhasResponseTime
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:WorkflowDescription ;
-  rdfs:range xsd:time ;
 .
 bpaas:responseTimehasLevel
   rdf:type owl:ObjectProperty ;
