@@ -678,11 +678,6 @@ bpaas:hasDataStorage
   rdfs:label "hasDataStorage"^^xsd:string ;
   rdfs:range xsd:decimal ;
 .
-bpaas:hasDowntimePerMonthInMin
-  rdf:type rdf:Property ;
-  rdfs:label "hasDowntimePerMonthInMin"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
 bpaas:hasIncidentManagementLevel
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
@@ -821,6 +816,11 @@ bpaas:responseTimeHasLevel
 bpaas:responseTimePerformanceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
+.
+  bpaas:WFDhasResponseTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:WorkflowDescription ;
+  rdfs:range xsd:time ;
 .
 bpaas:responseTimehasLevel
   rdf:type owl:ObjectProperty ;
