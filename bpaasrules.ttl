@@ -149,7 +149,7 @@ bpaas:BusinessProcessRequirement
           ]
         ) ;
     ] ;
- spin:rule [
+  spin:rule [
       rdf:type sp:Construct ;
       sp:templates (
           [
@@ -299,6 +299,74 @@ bpaas:WorkflowDescription
           ]
         ) ;
     ] ;
-  rdfs:label "WorkflowDescription" ;
-  rdfs:subClassOf archi:ApplicationService ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "time"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:hasResponseTime ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessRequirement ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:BPRhasResponseTimeLevel ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                    sp:arg2 "low" ;
+                  ] ;
+                sp:arg2 "10:00" ;
+                sp:arg3 [
+                    rdf:type sp:if ;
+                    sp:arg1 [
+                        rdf:type sp:eq ;
+                        sp:arg1 [
+                            sp:varName "label"^^xsd:string ;
+                          ] ;
+                        sp:arg2 "medium" ;
+                      ] ;
+                    sp:arg2 "03:00" ;
+                    sp:arg3 "00:30" ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "time"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
 .
