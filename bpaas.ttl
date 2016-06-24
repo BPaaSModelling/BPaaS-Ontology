@@ -88,6 +88,11 @@ bpaas:BPRhasResponseTimeLevel
   rdfs:domain bpaas:BusinessProcessRequirement ;
   rdfs:range bpaas:RequirementLevel ;
 .
+bpaas:BPRhasRestoreTime
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range bpaas:RequirementLevel ;
+.
 bpaas:BackupManagement
   rdf:type owl:Class ;
   rdfs:label "BackupManagement"^^xsd:string ;
@@ -673,10 +678,6 @@ bpaas:hasBackupFrequency
   rdfs:domain owl:Thing ;
   rdfs:range xsd:string ;
 .
-bpaas:hasBackupRestoreTime
-  rdf:type owl:DatatypeProperty ;
-  rdfs:range xsd:string ;
-.
 bpaas:hasBackupType
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
@@ -732,11 +733,6 @@ bpaas:hasResponseTime
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
   rdfs:range xsd:time ;
-.
-bpaas:hasRestoreTime
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:hasServiceSupport
   rdf:type owl:ObjectProperty ;
