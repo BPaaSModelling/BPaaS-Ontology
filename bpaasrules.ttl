@@ -349,7 +349,7 @@ bpaas:WorkflowDescription
                       ] ;
                     sp:arg2 "low" ;
                   ] ;
-                sp:arg2 "10:00" ;
+                sp:arg2 "00:10:00"^^xsd:time ;
                 sp:arg3 [
                     rdf:type sp:if ;
                     sp:arg1 [
@@ -359,8 +359,8 @@ bpaas:WorkflowDescription
                           ] ;
                         sp:arg2 "medium" ;
                       ] ;
-                    sp:arg2 "03:00" ;
-                    sp:arg3 "00:30" ;
+                    sp:arg2 "00:03:00"^^xsd:time ;
+                    sp:arg3 "00:00:30"^^xsd:time ;
                   ] ;
               ] ;
             sp:variable [

@@ -824,10 +824,6 @@ bpaas:responseTimePerformanceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:range bpaas:RequirementLevel ;
 .
-bpaas:responseTimehasLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:securityServiceHasLevel
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:SecurityService ;
