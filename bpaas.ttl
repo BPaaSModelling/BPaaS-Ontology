@@ -39,6 +39,10 @@ apqc:AmericanProductivityAndQualityCenter
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
+<http://ikm-group.ch/archimeo/bpaas#24-7>
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "24-7" ;
+.
 bpaas:ApplicationActivity
   rdf:type owl:Class ;
   rdfs:label "ApplicationActivity"^^xsd:string ;
@@ -92,6 +96,26 @@ bpaas:BPRhasRestoreTime
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BusinessProcessRequirement ;
   rdfs:range bpaas:RequirementLevel ;
+.
+bpaas:BPRhasSupportEndHour
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range xsd:time ;
+.
+bpaas:BPRhasSupportStartHour
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range xsd:time ;
+.
+bpaas:BPRhasSupportTimePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range bpaas:ServiceSupportPeriod ;
+.
+bpaas:BRPhasSupport24-7
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range xsd:boolean ;
 .
 bpaas:BackupManagement
   rdf:type owl:Class ;
@@ -168,6 +192,11 @@ bpaas:FreeOfCharge
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "FreeOfCharge"^^xsd:string ;
 .
+bpaas:Friday
+  rdf:type eo:CalendarFriday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Friday"^^xsd:string ;
+.
 bpaas:Full
   rdf:type bpaas:BackupManagement ;
 .
@@ -219,6 +248,19 @@ bpaas:MediaType
 bpaas:Medium
   rdf:type bpaas:RequirementLevel ;
   rdfs:label "medium"^^xsd:string ;
+.
+bpaas:Mon-Fri
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Mon-Fri"^^xsd:string ;
+.
+bpaas:Mon-Sat
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Mon-Sat"^^xsd:string ;
+.
+bpaas:Monday
+  rdf:type eo:CalendarMonday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Monday"^^xsd:string ;
 .
 bpaas:MonthlyFee
   rdf:type bpaas:PaymentPlan ;
@@ -343,6 +385,11 @@ bpaas:ResponseTime
   rdfs:label "Response Time"^^xsd:string ;
   rdfs:subClassOf bpaas:Performance ;
 .
+bpaas:Saturday
+  rdf:type eo:CalendarSaturday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Saturday"^^xsd:string ;
+.
 bpaas:SchoolsAndUniversities
   rdf:type bpaas:TargetMarket ;
 .
@@ -371,6 +418,11 @@ bpaas:ServiceReliability
   rdfs:label "ServiceReliability"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
+bpaas:ServiceSupportPeriod
+  rdf:type owl:Class ;
+  rdfs:label "Wednesday"^^xsd:string ;
+  rdfs:subClassOf top:Time ;
+.
 bpaas:Sha1
   rdf:type bpaas:Encryption ;
   bpaas:BPRHasTypeOfEncryptionLevel bpaas:Medium ;
@@ -398,19 +450,37 @@ bpaas:StoredData
   rdf:type owl:Class ;
   rdfs:subClassOf archi:DataObject ;
 .
+bpaas:Sunday
+  rdf:type eo:CalendarSunday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Sunday"^^xsd:string ;
+.
 bpaas:SupportService
   rdf:type owl:Class ;
   rdfs:label "SupportService"^^xsd:string ;
   rdfs:subClassOf archi:BusinessService ;
+.
+bpaas:SupportServiceHasServiceSupportPeriod
+  rdf:type owl:ObjectProperty ;
 .
 bpaas:TargetMarket
   rdf:type owl:Class ;
   rdfs:label "TargetMarket"^^xsd:string ;
   rdfs:subClassOf archi:BusinessRole ;
 .
+bpaas:Thursday
+  rdf:type eo:CalendarThursday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Thursday"^^xsd:string ;
+.
 bpaas:TryFreeFirst
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "TryFreeFirst"^^xsd:string ;
+.
+bpaas:Tuesday
+  rdf:type eo:CalendarTuesday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Tuesday"^^xsd:string ;
 .
 bpaas:TypeOfRaid
   rdf:type owl:Class ;
@@ -440,6 +510,11 @@ bpaas:WFDhasDataStorageLocation
   rdfs:domain bpaas:WorkflowDescription ;
   rdfs:range top:Location ;
 .
+bpaas:WFDhasSupportService
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:WorkflowDescription ;
+  rdfs:range bpaas:SupportService ;
+.
 bpaas:WFDhasTypeOfEncryption
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
@@ -449,6 +524,11 @@ bpaas:WFDhasTypeOfRaid
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
   rdfs:range bpaas:TypeOfRaid ;
+.
+bpaas:Wednesday
+  rdf:type eo:CalendarWednesday ;
+  rdf:type bpaas:ServiceSupportPeriod ;
+  rdfs:label "Wednesday"^^xsd:string ;
 .
 bpaas:Workflow
   rdf:type owl:Class ;
@@ -872,16 +952,6 @@ bpaas:serviceSupportEndHour
 bpaas:serviceSupportHasSupportService
   rdf:type owl:ObjectProperty ;
 .
-bpaas:serviceSupportMon-Fri
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:SupportService ;
-  rdfs:range xsd:boolean ;
-.
-bpaas:serviceSupportMon-Sat
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:SupportService ;
-  rdfs:range xsd:boolean ;
-.
 bpaas:serviceSupportNotOffered
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:SupportService ;
@@ -891,11 +961,6 @@ bpaas:serviceSupportStartHour
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:SupportService ;
   rdfs:range xsd:time ;
-.
-bpaas:serviceSupportWeekend
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:SupportService ;
-  rdfs:range xsd:boolean ;
 .
 bpaas:supportServiceHasPricingForSupport
   rdf:type owl:ObjectProperty ;
