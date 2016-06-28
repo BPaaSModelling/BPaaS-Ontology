@@ -6,6 +6,7 @@
 @prefix arg: <http://spinrdf.org/arg#> .
 @prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
 @prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix eo: <http://ikm-group.ch/archiMEO/eo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -794,6 +795,143 @@ bpaas:WorkflowDescription
               ] ;
             sp:variable [
                 sp:varName "time"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "val"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:SupportServiceHasServiceSupportPeriod ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessRequirement ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "val"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:BPRhasSupportServicePeriod ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:or ;
+                    sp:arg1 [
+                        rdf:type sp:or ;
+                        sp:arg1 [
+                            rdf:type sp:or ;
+                            sp:arg1 [
+                                rdf:type sp:or ;
+                                sp:arg1 [
+                                    rdf:type sp:or ;
+                                    sp:arg1 [
+                                        rdf:type sp:exists ;
+                                        sp:elements (
+                                            [
+                                              sp:object eo:CalendarMonday ;
+                                              sp:predicate rdf:type ;
+                                              sp:subject [
+                                                  sp:varName "val"^^xsd:string ;
+                                                ] ;
+                                            ]
+                                          ) ;
+                                      ] ;
+                                    sp:arg2 [
+                                        rdf:type sp:exists ;
+                                        sp:elements (
+                                            [
+                                              sp:object eo:CalendarTuesday ;
+                                              sp:predicate rdf:type ;
+                                              sp:subject [
+                                                  sp:varName "val"^^xsd:string ;
+                                                ] ;
+                                            ]
+                                          ) ;
+                                      ] ;
+                                  ] ;
+                                sp:arg2 [
+                                    rdf:type sp:exists ;
+                                    sp:elements (
+                                        [
+                                          sp:object eo:CalendarWednesday ;
+                                          sp:predicate rdf:type ;
+                                          sp:subject [
+                                              sp:varName "val"^^xsd:string ;
+                                            ] ;
+                                        ]
+                                      ) ;
+                                  ] ;
+                              ] ;
+                            sp:arg2 [
+                                rdf:type sp:exists ;
+                                sp:elements (
+                                    [
+                                      sp:object eo:CalendarThursday ;
+                                      sp:predicate rdf:type ;
+                                      sp:subject [
+                                          sp:varName "val"^^xsd:string ;
+                                        ] ;
+                                    ]
+                                  ) ;
+                              ] ;
+                          ] ;
+                        sp:arg2 [
+                            rdf:type sp:exists ;
+                            sp:elements (
+                                [
+                                  sp:object eo:CalendarFriday ;
+                                  sp:predicate rdf:type ;
+                                  sp:subject [
+                                      sp:varName "val"^^xsd:string ;
+                                    ] ;
+                                ]
+                              ) ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:exists ;
+                        sp:elements (
+                            [
+                              sp:object eo:CalendarSaturday ;
+                              sp:predicate rdf:type ;
+                              sp:subject [
+                                  sp:varName "val"^^xsd:string ;
+                                ] ;
+                            ]
+                          ) ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:exists ;
+                    sp:elements (
+                        [
+                          sp:object eo:CalendarSunday ;
+                          sp:predicate rdf:type ;
+                          sp:subject [
+                              sp:varName "val"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
               ] ;
           ]
         ) ;
