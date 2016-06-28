@@ -516,7 +516,7 @@ bpaas:WorkflowDescription
             sp:object bpaas:WorkflowDescription ;
             sp:predicate rdf:type ;
             sp:subject [
-                sp:varName "bpr"^^xsd:string ;
+                sp:varName "wd"^^xsd:string ;
               ] ;
           ]
           [
@@ -528,7 +528,7 @@ bpaas:WorkflowDescription
                       sp:object <http://ikm-group.ch/archimeo/bpaas#24-7> ;
                       sp:predicate bpaas:SupportServiceHasServiceSupportPeriod ;
                       sp:subject [
-                          sp:varName "bpr"^^xsd:string ;
+                          sp:varName "wd"^^xsd:string ;
                         ] ;
                     ]
                   ) ;
@@ -674,6 +674,56 @@ bpaas:WorkflowDescription
             sp:predicate bpaas:hasReferencedWorkflow ;
             sp:subject [
                 sp:varName "wfag"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "shr"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:serviceSupportStartHour ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ehr"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:serviceSupportEndHour ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:BusinessProcessRequirement ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ehr"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:BPRhasSupportEndHour ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "shr"^^xsd:string ;
+              ] ;
+            sp:predicate bpaas:BPRhasSupportStartHour ;
+            sp:subject [
+                sp:varName "bpr"^^xsd:string ;
               ] ;
           ]
         ) ;
