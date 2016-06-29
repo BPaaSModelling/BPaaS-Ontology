@@ -43,6 +43,10 @@ apqc:AmericanProductivityAndQualityCenter
   rdf:type bpaas:ServiceSupportPeriod ;
   rdfs:label "24-7" ;
 .
+bpaas:AES
+  rdf:type bpaas:EncryptionType ;
+  rdfs:label "AES"^^xsd:string ;
+.
 bpaas:ApplicationActivity
   rdf:type owl:Class ;
   rdfs:label "ApplicationActivity"^^xsd:string ;
@@ -121,6 +125,10 @@ bpaas:BackupManagement
   rdfs:label "BackupManagement"^^xsd:string ;
   rdfs:subClassOf bpaas:DataManagement ;
 .
+bpaas:Blowfish
+  rdf:type bpaas:EncryptionType ;
+  rdfs:label "Blowfish"^^xsd:string ;
+.
 bpaas:BusinessProcessAnnotationGroup
   rdf:type owl:Class ;
   rdfs:label "Business Process Annotation Group"^^xsd:string ;
@@ -169,6 +177,10 @@ bpaas:ContractHasPaymentMethod
 bpaas:CustomizablePlan
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "CustomizablePlan"^^xsd:string ;
+.
+bpaas:DES
+  rdf:type bpaas:EncryptionType ;
+  rdfs:label "DES"^^xsd:string ;
 .
 bpaas:DataManagement
   rdf:type owl:Class ;
@@ -465,6 +477,10 @@ bpaas:TargetMarket
   rdfs:label "TargetMarket"^^xsd:string ;
   rdfs:subClassOf archi:BusinessRole ;
 .
+bpaas:ThreeDES
+  rdf:type bpaas:EncryptionType ;
+  rdfs:label "3DES"^^xsd:string ;
+.
 bpaas:Thursday
   rdf:type eo:CalendarThursday ;
   rdf:type bpaas:ServiceSupportPeriod ;
@@ -723,7 +739,7 @@ bpaas:encryptionTypeHasHardwareModuleProtectionLevel
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
-. 
+.
 bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:EncryptionType ;
