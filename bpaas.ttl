@@ -679,9 +679,9 @@ bpaas:hasBackupFrequency
   rdfs:range xsd:string ;
 .
 bpaas:hasBackupType
-  rdf:type owl:ObjectProperty ;
+  rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:range bpaas:BackupManagement ;
+  rdfs:range xsd:string ;
 .
 bpaas:hasCryptographyLevel
   rdf:type owl:ObjectProperty ;
