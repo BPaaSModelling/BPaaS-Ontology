@@ -141,6 +141,7 @@ bpaas:BusinessProcessRequirement
 .
 bpaas:Businesses
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "Businesses" ;
 .
 bpaas:Capacity
   rdf:type owl:Class ;
@@ -213,6 +214,7 @@ bpaas:Full
 .
 bpaas:GrowingTeams
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "Growing Teams" ;
 .
 bpaas:High
   rdf:type bpaas:RequirementLevel ;
@@ -229,6 +231,7 @@ bpaas:Incremental
 .
 bpaas:Individuals
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "Individuals" ;
 .
 bpaas:JiraUIGroup
   rdf:type bpaas:WorkflowAnnotationGroup ;
@@ -282,6 +285,7 @@ bpaas:NIST_SP_800-63
 .
 bpaas:NoTarget
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "No Target" ;
 .
 bpaas:None
   rdf:type bpaas:EncryptionType ;
@@ -403,6 +407,7 @@ bpaas:Saturday
 .
 bpaas:SchoolsAndUniversities
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "Schools and Universities" ;
 .
 bpaas:SecurityIncidentManagement
   rdf:type owl:Class ;
@@ -444,6 +449,7 @@ bpaas:Sha256
 .
 bpaas:SmallTeams
   rdf:type bpaas:TargetMarket ;
+  rdfs:label "Small Teams" ;
 .
 bpaas:SocialMediaExecutionGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
