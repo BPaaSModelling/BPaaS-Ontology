@@ -601,6 +601,66 @@ bpaas:WorkflowDescription
       rdf:type sp:Construct ;
       sp:templates (
           [
+            sp:object "00:00:00"^^xsd:time ;
+            sp:predicate bpaas:serviceSupportStartHour ;
+            sp:subject [
+                sp:varName "wfd"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object "23:59:59"^^xsd:time ;
+            sp:predicate bpaas:serviceSupportEndHour ;
+            sp:subject [
+                sp:varName "wfd"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object bpaas:WorkflowDescription ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "wfd"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:notExists ;
+                    sp:elements (
+                        [
+                          sp:object [
+                              sp:varName "end"^^xsd:string ;
+                            ] ;
+                          sp:predicate bpaas:serviceSupportEndHour ;
+                          sp:subject [
+                              sp:varName "wfd"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:exists ;
+                    sp:elements (
+                        [
+                          sp:object <http://ikm-group.ch/archimeo/bpaas#24-7> ;
+                          sp:predicate bpaas:SupportServiceHasServiceSupportPeriod ;
+                          sp:subject [
+                              sp:varName "wfd"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
             sp:object [
                 sp:varName "des"^^xsd:string ;
               ] ;
