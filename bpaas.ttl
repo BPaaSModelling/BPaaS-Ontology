@@ -787,11 +787,6 @@ bpaas:hasEncryptionType
   rdfs:domain owl:Thing ;
   rdfs:range bpaas:EncryptionType ;
 .
-bpaas:hasIncidentManagementLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:hasPaymentPlan
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
