@@ -67,15 +67,15 @@ bpaas:Availability
   rdfs:label "Availability"^^xsd:string ;
   rdfs:subClassOf bpaas:Performance ;
 .
-bpaas:BPRHasTypeOfEncryptionLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:BusinessProcessRequirement ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:BPRhasDowntimePerMonthInMinutes
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:BusinessProcessRequirement ;
   rdfs:range xsd:integer ;
+.
+bpaas:BPRhasEncryptionLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:BPRhasMediaType
   rdf:type owl:ObjectProperty ;
@@ -114,7 +114,6 @@ bpaas:BPRhasSupportTimePeriod
 .
 bpaas:BRPhasSupport24-7
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:BusinessProcessRequirement ;
   rdfs:range xsd:boolean ;
 .
 bpaas:BackupManagement
@@ -183,7 +182,7 @@ bpaas:DataTransparency
 bpaas:Differential
   rdf:type bpaas:BackupManagement ;
 .
-bpaas:Encryption
+bpaas:EncryptionType
   rdf:type owl:Class ;
   rdfs:label "EncryptionType"^^xsd:string ;
   rdfs:subClassOf bpaas:SecurityService ;
@@ -273,8 +272,8 @@ bpaas:NoTarget
   rdf:type bpaas:TargetMarket ;
 .
 bpaas:None
-  rdf:type bpaas:Encryption ;
-  bpaas:BPRHasTypeOfEncryptionLevel bpaas:Low ;
+  rdf:type bpaas:EncryptionType ;
+  rdfs:label "None" ;
 .
 bpaas:One-timePasswordDevice
   rdf:type bpaas:Authentication ;
@@ -424,13 +423,11 @@ bpaas:ServiceSupportPeriod
   rdfs:subClassOf top:Time ;
 .
 bpaas:Sha1
-  rdf:type bpaas:Encryption ;
-  bpaas:BPRHasTypeOfEncryptionLevel bpaas:Medium ;
+  rdf:type bpaas:EncryptionType ;
   rdfs:label "SHA-1"^^xsd:string ;
 .
 bpaas:Sha256
-  rdf:type bpaas:Encryption ;
-  bpaas:BPRHasTypeOfEncryptionLevel bpaas:High ;
+  rdf:type bpaas:EncryptionType ;
   rdfs:label "SHA-256"^^xsd:string ;
 .
 bpaas:SmallTeams
@@ -493,7 +490,7 @@ bpaas:UserInterfaceGroup
 bpaas:Video_mp4
   rdf:type bpaas:MediaType ;
   bpaas:mediaTypeHasSize "5"^^xsd:decimal ;
-  rdfs:label "MediaType"^^xsd:string ;
+  rdfs:label "Video_mp4"^^xsd:string ;
 .
 bpaas:VulnerabilityManagement
   rdf:type owl:Class ;
@@ -518,7 +515,7 @@ bpaas:WFDhasSupportService
 bpaas:WFDhasTypeOfEncryption
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
-  rdfs:range bpaas:Encryption ;
+  rdfs:range bpaas:EncryptionType ;
 .
 bpaas:WFDhasTypeOfRaid
   rdf:type owl:ObjectProperty ;
@@ -640,7 +637,7 @@ bpaas:backupManagementHasFrequency
 bpaas:backupManagementHasRestoreTime
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BackupManagement ;
-  rdfs:range top:Time ;
+  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:backupProvidesHistoricalAccess
   rdf:type owl:DatatypeProperty ;
@@ -677,7 +674,7 @@ bpaas:capacityHasNumberOfProcessExecution
 bpaas:capacityIncludesMediaType
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:Capacity ;
-  rdfs:range media-types:MIMETYPE ;
+  rdfs:range bpaas:MediaType ;
 .
 bpaas:capacityIncludesSimultaneousConnections
   rdf:type owl:DatatypeProperty ;
@@ -719,17 +716,17 @@ bpaas:dataTransparencyIncludesSpecialCategoriesOfData
 .
 bpaas:encryptionTypeHasBruteForceResistance
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:Encryption ;
+  rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
 .
 bpaas:encryptionTypeHasHardwareModuleProtectionLevel
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:Encryption ;
+  rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
 .
 bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain bpaas:Encryption ;
+  rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
 .
 bpaas:hasAPQC
@@ -763,16 +760,16 @@ bpaas:hasBackupType
   rdfs:domain owl:Thing ;
   rdfs:range xsd:string ;
 .
-bpaas:hasCryptographyLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
   rdfs:label "hasDataStorage"^^xsd:string ;
   rdfs:range xsd:decimal ;
+.
+bpaas:hasEncryptionType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:EncryptionType ;
 .
 bpaas:hasIncidentManagementLevel
   rdf:type owl:ObjectProperty ;
