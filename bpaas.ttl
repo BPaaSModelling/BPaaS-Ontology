@@ -76,11 +76,6 @@ bpaas:BPRhasDowntimePerMonthInMinutes
   rdfs:domain bpaas:BusinessProcessRequirement ;
   rdfs:range xsd:integer ;
 .
-bpaas:BPRhasEncryptionLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:RequirementLevel ;
-.
 bpaas:BPRhasMediaType
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BusinessProcessRequirement ;
@@ -94,11 +89,6 @@ bpaas:BPRhasNumberOfProcessExecution
 bpaas:BPRhasResponseTimeLevel
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BusinessProcessRequirement ;
-  rdfs:range bpaas:RequirementLevel ;
-.
-bpaas:BPRhasRestoreTime
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
   rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:BPRhasSupportEndHour
@@ -788,6 +778,11 @@ bpaas:hasDataStorage
   rdfs:label "hasDataStorage"^^xsd:string ;
   rdfs:range xsd:decimal ;
 .
+bpaas:hasEncryptionLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:RequirementLevel ;
+.
 bpaas:hasPaymentPlan
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
@@ -822,6 +817,11 @@ bpaas:hasResponseTime
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
   rdfs:range xsd:time ;
+.
+bpaas:hasRestoreTime
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:hasRetentionTimeInMonths
   rdf:type owl:DatatypeProperty ;
