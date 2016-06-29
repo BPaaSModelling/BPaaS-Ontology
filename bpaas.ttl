@@ -78,7 +78,7 @@ bpaas:BPRhasDowntimePerMonthInMinutes
 .
 bpaas:BPRhasEncryptionLevel
   rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:domain owl:Thing ;
   rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:BPRhasMediaType
@@ -98,7 +98,7 @@ bpaas:BPRhasResponseTimeLevel
 .
 bpaas:BPRhasRestoreTime
   rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:BusinessProcessRequirement ;
+  rdfs:domain owl:Thing ;
   rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:BPRhasSupportEndHour
@@ -529,15 +529,21 @@ bpaas:WFDhasDataStorageLocation
   rdfs:domain bpaas:WorkflowDescription ;
   rdfs:range top:Location ;
 .
+bpaas:WFDhasEncryptionType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:WorkflowDescription ;
+  rdfs:range bpaas:EncryptionType ;
+.
+bpaas:WFDhasMaxiumSimultaneousConnections
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:WorkflowDescription ;
+  rdfs:label "Simultaneous Connections"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
 bpaas:WFDhasSupportService
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:WorkflowDescription ;
   rdfs:range bpaas:SupportService ;
-.
-bpaas:WFDhasTypeOfEncryption
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:WorkflowDescription ;
-  rdfs:range bpaas:EncryptionType ;
 .
 bpaas:WFDhasTypeOfRaid
   rdf:type owl:ObjectProperty ;
@@ -756,11 +762,6 @@ bpaas:hasAPQC
   rdfs:domain owl:Thing ;
   rdfs:range apqc:AmericanProductivityAndQualityCenter ;
 .
-bpaas:hasAuthentication
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:Authentication ;
-.
 bpaas:hasAvailabilityInPercent
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
@@ -779,7 +780,6 @@ bpaas:hasBackupFrequency
 .
 bpaas:hasBackupType
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain owl:Thing ;
   rdfs:range xsd:string ;
 .
 bpaas:hasDataStorage
@@ -787,11 +787,6 @@ bpaas:hasDataStorage
   rdfs:domain owl:Thing ;
   rdfs:label "hasDataStorage"^^xsd:string ;
   rdfs:range xsd:decimal ;
-.
-bpaas:hasEncryptionType
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range bpaas:EncryptionType ;
 .
 bpaas:hasPaymentPlan
   rdf:type owl:ObjectProperty ;
@@ -827,6 +822,24 @@ bpaas:hasResponseTime
   rdf:type owl:DatatypeProperty ;
   rdfs:domain owl:Thing ;
   rdfs:range xsd:time ;
+.
+bpaas:hasRetentionTimeInMonths
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Retention time in months"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+bpaas:hasRetentionTimeInWeeks
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Retention time in weeks"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+bpaas:hasRetentionTimeInYears
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Retention time in years"^^xsd:string ;
+  rdfs:range xsd:integer ;
 .
 bpaas:hasServiceSupport
   rdf:type owl:ObjectProperty ;
