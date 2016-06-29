@@ -45,6 +45,7 @@ apqc:AmericanProductivityAndQualityCenter
 .
 bpaas:AES
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:Medium ;
   rdfs:label "AES"^^xsd:string ;
 .
 bpaas:ApplicationActivity
@@ -127,6 +128,7 @@ bpaas:BackupManagement
 .
 bpaas:Blowfish
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:High ;
   rdfs:label "Blowfish"^^xsd:string ;
 .
 bpaas:BusinessProcessAnnotationGroup
@@ -181,6 +183,7 @@ bpaas:CustomizablePlan
 .
 bpaas:DES
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:Low ;
   rdfs:label "DES"^^xsd:string ;
 .
 bpaas:DataManagement
@@ -289,6 +292,7 @@ bpaas:NoTarget
 .
 bpaas:None
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:Low ;
   rdfs:label "None" ;
 .
 bpaas:One-timePasswordDevice
@@ -441,10 +445,12 @@ bpaas:ServiceSupportPeriod
 .
 bpaas:Sha1
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:Medium ;
   rdfs:label "SHA-1"^^xsd:string ;
 .
 bpaas:Sha256
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:High ;
   rdfs:label "SHA-256"^^xsd:string ;
 .
 bpaas:SmallTeams
@@ -485,6 +491,7 @@ bpaas:TargetMarket
 .
 bpaas:ThreeDES
   rdf:type bpaas:EncryptionType ;
+  bpaas:encryptionTypeHasRequirementLevel bpaas:Low ;
   rdfs:label "3DES"^^xsd:string ;
 .
 bpaas:Thursday
@@ -756,6 +763,11 @@ bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
+.
+bpaas:encryptionTypeHasRequirementLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:EncryptionType ;
+  rdfs:range bpaas:RequirementLevel ;
 .
 bpaas:hasAPQC
   rdf:type owl:ObjectProperty ;
