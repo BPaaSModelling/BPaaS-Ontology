@@ -723,7 +723,7 @@ bpaas:encryptionTypeHasHardwareModuleProtectionLevel
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:EncryptionType ;
   rdfs:range xsd:string ;
-.
+. 
 bpaas:encryptionTypeHasKeyAccessControlPolicy
   rdf:type owl:DatatypeProperty ;
   rdfs:domain bpaas:EncryptionType ;
