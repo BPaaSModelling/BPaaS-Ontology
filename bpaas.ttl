@@ -645,11 +645,6 @@ bpaas:backupManagementHasAVGRestoreTime
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:time ;
 .
-bpaas:backupManagementHasAccessPeriod
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain bpaas:BackupManagement ;
-  rdfs:range top:Time ;
-.
 bpaas:backupManagementHasExpectedFrequencyOfStorage
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:string ;
@@ -663,6 +658,11 @@ bpaas:backupManagementHasRestoreTime
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:BackupManagement ;
   rdfs:range bpaas:RequirementLevel ;
+.
+bpaas:backupManagementHasRetention
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:BackupManagement ;
+  rdfs:range top:Time ;
 .
 bpaas:backupProvidesHistoricalAccess
   rdf:type owl:DatatypeProperty ;
@@ -769,11 +769,6 @@ bpaas:hasAvailabilityInPercent
   rdfs:domain owl:Thing ;
   rdfs:label "hasAvailabilityInPercent"^^xsd:string ;
   rdfs:range xsd:decimal ;
-.
-bpaas:hasBackupAccessPeriod
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:range xsd:string ;
 .
 bpaas:hasBackupFrequency
   rdf:type owl:DatatypeProperty ;
