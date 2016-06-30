@@ -57,6 +57,22 @@ bpaas:ArchivedData
   rdf:type owl:Class ;
   rdfs:subClassOf archi:DataObject ;
 .
+bpaas:At_least_daily
+  rdf:type bpaas:BackupFrequency ;
+  rdfs:label "At least daily"^^xsd:string ;
+.
+bpaas:At_least_monthly
+  rdf:type bpaas:BackupFrequency ;
+  rdfs:label "At least monthly"^^xsd:string ;
+.
+bpaas:At_least_weekly
+  rdf:type bpaas:BackupFrequency ;
+  rdfs:label "At least weekly"^^xsd:string ;
+.
+bpaas:At_least_yearly
+  rdf:type bpaas:BackupFrequency ;
+  rdfs:label "At least yearly"^^xsd:string ;
+.
 bpaas:Auditing
   rdf:type owl:Class ;
   rdfs:label "Auditing"^^xsd:string ;
@@ -110,6 +126,11 @@ bpaas:BPRhasSupportTimePeriod
 bpaas:BRPhasSupport24-7
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:boolean ;
+.
+bpaas:BackupFrequency
+  rdf:type owl:Class ;
+  rdfs:label "Backup frequency"^^xsd:string ;
+  rdfs:subClassOf bpaas:BackupManagement ;
 .
 bpaas:BackupManagement
   rdf:type owl:Class ;
@@ -771,13 +792,9 @@ bpaas:hasAvailabilityInPercent
   rdfs:range xsd:decimal ;
 .
 bpaas:hasBackupFrequency
-  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:range xsd:string ;
-.
-bpaas:hasBackupType
-  rdf:type owl:DatatypeProperty ;
-  rdfs:range xsd:string ;
+  rdfs:label "Backup Frequency"^^xsd:string ;
 .
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
