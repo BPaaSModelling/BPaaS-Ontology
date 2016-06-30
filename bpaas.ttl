@@ -921,6 +921,7 @@ bpaas:mediaTypeHasSize
 .
 bpaas:mp3
   rdf:type bpaas:MediaType ;
+  bpaas:mediaTypeHasSize "4"^^xsd:decimal ;
   rdfs:label "mp3"^^xsd:string ;
 .
 bpaas:obtainsService
@@ -946,6 +947,7 @@ bpaas:paymentPlanHasPaymentType
 .
 bpaas:pdf
   rdf:type bpaas:MediaType ;
+  bpaas:mediaTypeHasSize "2"^^xsd:decimal ;
   rdfs:label "pdf"^^xsd:string ;
 .
 bpaas:performanceHasLevel
@@ -955,6 +957,7 @@ bpaas:performanceHasLevel
 .
 bpaas:ppt
   rdf:type bpaas:MediaType ;
+  bpaas:mediaTypeHasSize "2"^^xsd:decimal ;
   rdfs:label "ppt"^^xsd:string ;
 .
 bpaas:refersToALocation
