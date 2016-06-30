@@ -795,6 +795,7 @@ bpaas:hasBackupFrequency
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
   rdfs:label "Backup Frequency"^^xsd:string ;
+  rdfs:range bpaas:BackupFrequency ;
 .
 bpaas:hasDataStorage
   rdf:type owl:DatatypeProperty ;
