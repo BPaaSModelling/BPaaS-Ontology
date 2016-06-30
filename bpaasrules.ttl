@@ -820,24 +820,15 @@ bpaas:WorkflowDescription
               ] ;
           ]
           [
-            sp:object [
-                sp:varName "label"^^xsd:string ;
-              ] ;
-            sp:predicate rdfs:label ;
-            sp:subject [
-                sp:varName "level"^^xsd:string ;
-              ] ;
-          ]
-          [
             rdf:type sp:Bind ;
             sp:expression [
                 rdf:type sp:if ;
                 sp:arg1 [
                     rdf:type sp:eq ;
                     sp:arg1 [
-                        sp:varName "label"^^xsd:string ;
+                        sp:varName "level"^^xsd:string ;
                       ] ;
-                    sp:arg2 "low" ;
+                    sp:arg2 bpaas:Low ;
                   ] ;
                 sp:arg2 "00:10:00"^^xsd:time ;
                 sp:arg3 [
@@ -845,9 +836,9 @@ bpaas:WorkflowDescription
                     sp:arg1 [
                         rdf:type sp:eq ;
                         sp:arg1 [
-                            sp:varName "label"^^xsd:string ;
+                            sp:varName "level"^^xsd:string ;
                           ] ;
-                        sp:arg2 "medium" ;
+                        sp:arg2 bpaas:Medium ;
                       ] ;
                     sp:arg2 "00:03:00"^^xsd:time ;
                     sp:arg3 "00:00:30"^^xsd:time ;
