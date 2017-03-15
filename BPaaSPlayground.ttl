@@ -44,11 +44,6 @@ bpaas:AES
   bpaas:encryptionTypeHasRequirementLevel bpaas:Medium ;
   rdfs:label "AES" ;
 .
-bpaas:Africa
-  rdf:type owl:Class ;
-  rdfs:label "Africa" ;
-  rdfs:subClassOf bpaas:Continent ;
-.
 bpaas:ApplicationActivity
   rdf:type owl:Class ;
   rdfs:label "ApplicationActivity" ;
@@ -62,20 +57,10 @@ bpaas:ArchivedData
   rdf:type owl:Class ;
   rdfs:subClassOf archi:DataObject ;
 .
-bpaas:Asia
-  rdf:type owl:Class ;
-  rdfs:label "Asia" ;
-  rdfs:subClassOf bpaas:Continent ;
-.
 bpaas:Auditing
   rdf:type owl:Class ;
   rdfs:label "Auditing" ;
   rdfs:subClassOf bpaas:SecurityService ;
-.
-bpaas:Austria
-  rdf:type owl:Class ;
-  rdfs:label "Austria" ;
-  rdfs:subClassOf bpaas:Europe ;
 .
 bpaas:Authentication
   rdf:type owl:Class ;
@@ -146,11 +131,6 @@ bpaas:Blowfish
   bpaas:encryptionTypeHasRequirementLevel bpaas:High ;
   rdfs:label "Blowfish" ;
 .
-bpaas:Brazil
-  rdf:type owl:Class ;
-  rdfs:label "Brazil" ;
-  rdfs:subClassOf bpaas:SouthAmerica ;
-.
 bpaas:BusinessProcessAnnotationGroup
   rdf:type owl:Class ;
   rdfs:label "Business Process Annotation Group" ;
@@ -169,11 +149,6 @@ bpaas:Capacity
   rdf:type owl:Class ;
   rdfs:label "Capacity" ;
   rdfs:subClassOf bpaas:Performance ;
-.
-bpaas:China
-  rdf:type owl:Class ;
-  rdfs:label "China" ;
-  rdfs:subClassOf bpaas:Asia ;
 .
 bpaas:CloudBroker
   rdf:type owl:Class ;
@@ -196,11 +171,6 @@ bpaas:ConsultingService
   rdf:type owl:Class ;
   rdfs:label "ConsultingService" ;
   rdfs:subClassOf archi:BusinessService ;
-.
-bpaas:Continent
-  rdf:type owl:Class ;
-  rdfs:label "Continent" ;
-  rdfs:subClassOf bpaas:PhysicalLocation ;
 .
 bpaas:ContractHasPaymentMethod
   rdf:type rdf:Property ;
@@ -237,19 +207,9 @@ bpaas:EncryptionType
   rdfs:label "EncryptionType" ;
   rdfs:subClassOf bpaas:SecurityService ;
 .
-bpaas:Europe
-  rdf:type owl:Class ;
-  rdfs:label "Europe" ;
-  rdfs:subClassOf bpaas:Continent ;
-.
 bpaas:FreeofCharge
   rdf:type bpaas:PaymentPlan ;
   rdfs:label "Free of Charge" ;
-.
-bpaas:French
-  rdf:type owl:Class ;
-  rdfs:label "French" ;
-  rdfs:subClassOf bpaas:Europe ;
 .
 bpaas:Friday
   rdf:type eo:CalendarFriday ;
@@ -258,11 +218,6 @@ bpaas:Friday
 .
 bpaas:Full
   rdf:type bpaas:BackupManagement ;
-.
-bpaas:Germany
-  rdf:type owl:Class ;
-  rdfs:label "Germany" ;
-  rdfs:subClassOf bpaas:Europe ;
 .
 bpaas:GrowingTeams
   rdf:type bpaas:TargetMarket ;
@@ -289,16 +244,6 @@ bpaas:Incremental
 bpaas:Individuals
   rdf:type bpaas:TargetMarket ;
   rdfs:label "Individuals" ;
-.
-bpaas:Israel
-  rdf:type owl:Class ;
-  rdfs:label "Israel" ;
-  rdfs:subClassOf bpaas:Asia ;
-.
-bpaas:Italy
-  rdf:type owl:Class ;
-  rdfs:label "Italy" ;
-  rdfs:subClassOf bpaas:Europe ;
 .
 bpaas:JiraUIGroup
   rdf:type bpaas:WorkflowAnnotationGroup ;
@@ -379,11 +324,6 @@ bpaas:None
   bpaas:encryptionTypeHasRequirementLevel bpaas:Low ;
   rdfs:label "None" ;
 .
-bpaas:NorthAmerica
-  rdf:type owl:Class ;
-  rdfs:label "NorthAmerica" ;
-  rdfs:subClassOf bpaas:Continent ;
-.
 bpaas:One-timePasswordDevice
   rdf:type bpaas:Authentication ;
 .
@@ -410,11 +350,6 @@ bpaas:Performance
 bpaas:PersonalDataProtection
   rdf:type owl:Class ;
   rdfs:subClassOf bpaas:ServiceLevelObjective ;
-.
-bpaas:PhysicalLocation
-  rdf:type owl:Class ;
-  rdfs:label "PhysicalLocation" ;
-  rdfs:subClassOf owl:Thing ;
 .
 bpaas:Pin
   rdf:type bpaas:Authentication ;
@@ -502,11 +437,6 @@ bpaas:ResponseTime
   rdfs:label "Response Time" ;
   rdfs:subClassOf bpaas:Performance ;
 .
-bpaas:Romania
-  rdf:type owl:Class ;
-  rdfs:label "Romania" ;
-  rdfs:subClassOf bpaas:Europe ;
-.
 bpaas:Saturday
   rdf:type eo:CalendarSaturday ;
   rdf:type bpaas:ServiceSupport ;
@@ -572,11 +502,6 @@ bpaas:SocialMediaExecutionGroup
 bpaas:SoftCryptoToken
   rdf:type bpaas:Authentication ;
 .
-bpaas:SouthAmerica
-  rdf:type owl:Class ;
-  rdfs:label "SouthAmerica" ;
-  rdfs:subClassOf bpaas:Continent ;
-.
 bpaas:StoragePeriodInMonths
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:integer ;
@@ -592,11 +517,6 @@ bpaas:Sunday
 .
 bpaas:SupportServiceHasServiceSupportPeriod
   rdf:type owl:ObjectProperty ;
-.
-bpaas:Switzerland
-  rdf:type owl:Class ;
-  rdfs:label "Switzerland" ;
-  rdfs:subClassOf bpaas:Europe ;
 .
 bpaas:TargetMarket
   rdf:type owl:Class ;
@@ -630,11 +550,6 @@ bpaas:TypeOfRaid
   rdf:type owl:Class ;
   rdfs:label "Type of raid" ;
   rdfs:subClassOf bpaas:SecurityService ;
-.
-bpaas:USA
-  rdf:type owl:Class ;
-  rdfs:label "USA" ;
-  rdfs:subClassOf bpaas:NorthAmerica ;
 .
 bpaas:UserInterfaceGroup
   rdf:type bpaas:BusinessProcessAnnotationGroup ;
@@ -981,7 +896,6 @@ bpaas:cloudServiceHasProcessedDataLocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:CloudService ;
   rdfs:label "cloudServiceHasProcessedDataLocation" ;
-  rdfs:range bpaas:PhysicalLocation ;
 .
 bpaas:cloudServiceHasResponseTime_in_ms
   rdf:type owl:DatatypeProperty ;
@@ -1008,7 +922,6 @@ bpaas:cloudServiceHasStoredDataLocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:CloudService ;
   rdfs:label "cloudServiceHasStoredDataLocation" ;
-  rdfs:range bpaas:PhysicalLocation ;
 .
 bpaas:cloudServiceHasTargetMarket
   rdf:type owl:ObjectProperty ;
