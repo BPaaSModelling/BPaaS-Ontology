@@ -1,4 +1,4 @@
-# baseURI: http://ikm-group.ch/archimeo/rest
+# baseURI: http://ikm-group.ch/archimeo/restOntology
 # prefix: rest
 
 @prefix rest: <http://ikm-group.ch/archimeo/rest#> .

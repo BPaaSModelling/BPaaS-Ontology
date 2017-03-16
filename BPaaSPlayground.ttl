@@ -4,6 +4,7 @@
 # imports: http://ikm-group.ch/archimeo/bmm
 # imports: http://ikm-group.ch/archimeo/fbpdo
 # imports: http://ikm-group.ch/archimeo/nco
+# imports: http://ikm-group.ch/archimeo/rest
 # imports: http://spinrdf.org/spl
 # prefix: bpaas
 
@@ -36,6 +37,7 @@ apqc:AmericanProductivityAndQualityCenter
   owl:imports <http://ikm-group.ch/archimeo/bmm> ;
   owl:imports <http://ikm-group.ch/archimeo/fbpdo> ;
   owl:imports <http://ikm-group.ch/archimeo/nco> ;
+  owl:imports <http://ikm-group.ch/archimeo/rest> ;
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
