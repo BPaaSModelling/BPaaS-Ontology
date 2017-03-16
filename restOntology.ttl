@@ -9,5 +9,5 @@
 
 <http://ikm-group.ch/archimeo/rest>
   rdf:type owl:Ontology ;
-  owl:versionInfo "Version 1"^^xsd:string ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
